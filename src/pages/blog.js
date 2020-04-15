@@ -18,13 +18,13 @@ query BlogQuery($first: Int = 3, $last: Int, $after: String, $before: String){
           }
           blog_post_title
           body {
-            ... on PRISMIC_Blog_postBodyText {
+            ... on PRISMIC_Blog_postBodyPost_text {
               primary {
                 post_text
               }
               type
             }
-            ... on PRISMIC_Blog_postBodyQuote {
+            ... on PRISMIC_Blog_postBodyPost_quote {
               type
               label
               primary {

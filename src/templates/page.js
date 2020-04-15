@@ -47,7 +47,7 @@ query PageQuery($id: String){
                 }
                 button_label
                 call_to_action_title
-                content
+
                 featured_image
               }
             }

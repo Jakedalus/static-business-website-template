@@ -30,7 +30,7 @@ const CallToActionBlockWrapper = styled.section`
 `;
 
 const Button = styled.div`
-  background: var(--dark_red);
+  background: var(--lavendar);
   display: inline-block;
   border-radius: 4px;
   cursor: pointer;
@@ -42,7 +42,8 @@ const Button = styled.div`
     text-decoration: none;
 
     &:hover {
-      color: var(--yellow);
+      background: var(--dark_orange);
+      border-radius: 4px;
       // text-decoration: underline;
     }
   }

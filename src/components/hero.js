@@ -10,24 +10,32 @@ const HeroWrapper = styled.section`
   background-position: center;
   // background-position-x: 1px;
   background-repeat: no-repeat;
-  height: calc(100vh - 66px);
+  height: calc(100vh - 166px);
   display: flex;
   align-items: center;
   text-align: center;
-  color: var(--dark_red);
-  color: var(--yellow);
+  color: var(--orange);
 
   div {
     max-width: 800px;
     margin: 0 auto;
-    // background: rgba(0,0,0,0.5);
-    padding: 100px 200px;
+    // background: rgba(0,0,0,0.6);
+    padding: 50px 30px;
     border-radius: 10px;
 
     animation: .8s ease-in-out .2s fadeInMoveUp backwards;
 
+    h1, p {
+      text-shadow: 2px 2px 2px black;
+    }
+
     h1 {
       font-size: 60px;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: bold;
     }
   }
 

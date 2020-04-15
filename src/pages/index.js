@@ -33,6 +33,13 @@ export const query = graphql`
                       uid
                     }
                   }
+                  ... on PRISMIC_Contact_page {
+                    form_title
+                    form_description
+                    _meta {
+                      uid
+                    }
+                  }
                 }
                 button_label
                 call_to_action_title

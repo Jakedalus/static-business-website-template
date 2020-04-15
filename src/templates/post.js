@@ -16,13 +16,13 @@ query ($uid: String) {
           }
           blog_post_title
           body {
-            ... on PRISMIC_Blog_postBodyText {
+            ... on PRISMIC_Blog_postBodyPost_text {
               type
               primary {
                 post_text
               }
             }
-            ... on PRISMIC_Blog_postBodyQuote {
+            ... on PRISMIC_Blog_postBodyPost_quote {
               type
               primary {
                 post_quote

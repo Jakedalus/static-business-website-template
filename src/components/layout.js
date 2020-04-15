@@ -59,7 +59,7 @@ const NavLink = styled.div`
     font-size: 16px;
 
     &:hover {
-      color: var(--yellow);
+      color: var(--orange);
     }
   }
 `;
