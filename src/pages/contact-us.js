@@ -25,7 +25,7 @@ export const query = graphql`
 
 const Form = styled.form`
   padding: 10px;
-  background: var(--light_gray);
+  background: var(--lavendar);
   border-radius: 10px;
   margin-top: 20px;
   max-width: 800px;
@@ -48,7 +48,7 @@ const Form = styled.form`
 `;
 
 const Button = styled.button`
-  background: var(--dark_red);
+  background: var(--blue);
   color: white;
   cursor: pointer;
   padding: 4px 8px;
@@ -57,7 +57,7 @@ const Button = styled.button`
   border-radius: 4px;
 
   &:hover {
-    color: var(--yellow);
+    filter: brightness(170%);
   }
 `;
 

@@ -9,7 +9,14 @@ const PriceListWrapper = styled.section`
 
   >div:last-child {
     display: flex;
+  }
 
+  .price-list-item:first-child {
+    margin-right: 20px;
+  }
+
+  .price-list-item:last-child {
+    margin-left: 20px;
   }
 `;
 

@@ -36,7 +36,7 @@ const SliceZone = ({body}) => {
               prices={bodyContent.fields}
             />
           );
-        } else if (bodyContent.type === 'text') {
+        } else if (bodyContent.type === 'post_text') {
           return (
             <PostText
               key={i}
@@ -52,7 +52,7 @@ const SliceZone = ({body}) => {
               imageCaption={bodyContent.primary.image_caption}
             />
           );
-        } else if (bodyContent.type === 'quote') {
+        } else if (bodyContent.type === 'post_quote') {
           return (
             <PostQuote
               key={i}

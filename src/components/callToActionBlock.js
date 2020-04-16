@@ -5,7 +5,7 @@ import {Link} from 'gatsby';
 
 const CallToActionBlockWrapper = styled.section`
   padding: 20px;
-  background: var(--dark_blue);
+  background: var(--lavendar);
   color: white;
 
   border-radius: 20px;
@@ -30,7 +30,7 @@ const CallToActionBlockWrapper = styled.section`
 `;
 
 const Button = styled.div`
-  background: var(--lavendar);
+  background: var(--blue);
   display: inline-block;
   border-radius: 4px;
   cursor: pointer;
@@ -41,11 +41,11 @@ const Button = styled.div`
     display: inline-block;
     text-decoration: none;
 
-    &:hover {
-      background: var(--dark_orange);
-      border-radius: 4px;
-      // text-decoration: underline;
-    }
+    
+  }
+
+  &:hover {
+    filter: brightness(170%);
   }
 `;
 

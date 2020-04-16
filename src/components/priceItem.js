@@ -5,10 +5,10 @@ import styled from 'styled-components';
 const PriceItemWrapper = styled.div`
   flex-grow: 1;
   flex-basis: 0;
-  margin: 0 10px;
+  // margin: 0 10px;
   background: ${p => p.mostPopular ? 'var(--dark_orange)' : 'var(--blue)'};
   color: ${p => p.mostPopular ? 'white' : 'white'};
-  padding: 10px;
+  padding: 20px 10px;
   position: relative;
 
   .price {
@@ -30,8 +30,8 @@ const PriceItemWrapper = styled.div`
 
   .most-popular {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -10px;
+    top: -10px;
     background: var(--purple);
     padding: 5px;
     color: white;
@@ -41,7 +41,7 @@ const PriceItemWrapper = styled.div`
 const PriceItem = ({title, price, description, mostPopular}) => {
   console.log(title, price, description, mostPopular);
   return (
-    <PriceItemWrapper mostPopular={mostPopular}>
+    <PriceItemWrapper className="price-list-item" mostPopular={mostPopular}>
       {!!mostPopular && 
         <div className="most-popular">
           Most popular

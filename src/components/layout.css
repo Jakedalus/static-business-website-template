@@ -17,7 +17,7 @@
   --orange: #ffaa5e;
   --light_orange: #ffd4a3;
   --beige: #ffecd6;
-  --off_white: #FFFFF5;
+  --off_white: #FFFFF0;
 }
 
 * {
@@ -28,7 +28,7 @@ html {
   font-family: 'Karla', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  background: var(--light_gray);
+  background: var(--beige);
 }
 body {
   margin: 0;

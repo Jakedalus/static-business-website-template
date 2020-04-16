@@ -44,11 +44,11 @@ query ($uid: String) {
 }`;
 
 
-const PageWrapper = styled.section`
+const PostWrapper = styled.section`
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: var(--off_white);
+  background: var(--beige);
   color: black;
   border-radius: 10px;
 `;
@@ -62,14 +62,14 @@ const Post = props => {
   const body = props.data.prismic.allBlog_posts.edges[0].node.body;
   return (
     <Layout>
-      <PageWrapper>
+      <PostWrapper>
         <RichText render={postTitle} />
         <p>{date}</p>
         {
           body &&
           <SliceZone body={body} />
         }
-      </PageWrapper>
+      </PostWrapper>
       
     </Layout> 
   )

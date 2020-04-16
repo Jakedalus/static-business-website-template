@@ -100,7 +100,7 @@ const Branding = styled.div`
     text-decoration: none;
 
     &:hover {
-      color: var(--yellow);
+      color: var(--orange);
     }
   }
 `;

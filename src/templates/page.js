@@ -47,7 +47,7 @@ query PageQuery($id: String){
                 }
                 button_label
                 call_to_action_title
-
+                content
                 featured_image
               }
             }
@@ -68,8 +68,8 @@ const PageWrapper = styled.section`
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: var(--off_white);
-  color: black;
+  background: var(--dark_blue);
+  color: white;
   border-radius: 10px;
 `;
 
