@@ -6,6 +6,10 @@ import CallToActionBlock from './callToActionBlock';
 const CallToActionGridWrapper = styled.section`
   max-width: 800px;
   margin: 40px auto;
+
+  > h1 {
+    color: var(--blue);
+  }
 `;
 
 const CallToActionGrid = ({title, callToActions}) => {

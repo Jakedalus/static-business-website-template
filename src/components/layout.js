@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql, Link } from "gatsby";
 import "./layout.css";
 import styled from 'styled-components';
+import { darken, cssVar } from 'polished';
 
 const Main = styled.main`
   margin: 0 auto;
@@ -52,14 +53,39 @@ const NavLink = styled.div`
   margin: auto 0;
 
   a {
+    position: relative;
     color: white;
-    padding: 0 16px;
+    // color: var(--off_white);
+    margin: 0 16px;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
 
-    &:hover {
-      color: var(--orange);
+    // &:hover {
+    //   color: var(--orange);
+    //   color: var(--purple);
+    //   color: red;
+    // }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.2s ease-in-out 0s;
+      transition: all 0.2s ease-in-out 0s;
+    }
+
+    &:hover:before {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
     }
   }
 `;
@@ -67,6 +93,10 @@ const NavLink = styled.div`
 const Header = styled.header`
   display: flex;
   background: var(--dark_blue);
+  background: var(--dark_orange);
+  background: var(--lavendar);
+  background: var(--purple);
+  
   height: 66px;
   padding: 0 16px;
   box-sizing: border-box;
@@ -94,13 +124,31 @@ const Branding = styled.div`
   // animation: .8s ease-in-out fadeIn;
 
   a {
+    position: relative;
     color: white;
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
 
-    &:hover {
-      color: var(--orange);
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.2s ease-in-out 0s;
+      transition: all 0.2s ease-in-out 0s;
+    }
+
+    &:hover:before {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
     }
   }
 `;
@@ -111,7 +159,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header>
-
         <StaticQuery  
           query={`${navigationQuery}`}
           render={(data) => {

@@ -35,13 +35,13 @@ const Button = styled.div`
   border-radius: 4px;
   cursor: pointer;
 
+  transition: filter 0.2s ease-in-out 0s;
+
   a {
     color: white;
     padding: 4px 8px;
     display: inline-block;
     text-decoration: none;
-
-    
   }
 
   &:hover {

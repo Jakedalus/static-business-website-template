@@ -45,6 +45,7 @@ const Form = styled.form`
     resize: none;
     height: 100px;
   }
+
 `;
 
 const Button = styled.button`

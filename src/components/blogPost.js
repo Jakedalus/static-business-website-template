@@ -20,7 +20,7 @@ const BlogPostWrapper = styled.section`
   a {
     text-decoration: none;
     color: var(--blue); 
-    // transition: filter .2s ease-in;
+    transition: filter 0.2s ease-in-out 0s;
 
     p, h1 {
       margin: 0;

@@ -7,6 +7,10 @@ const PriceListWrapper = styled.section`
   max-width: 800px;
   margin: 40px auto;
 
+  > h1 {
+    color: var(--blue);
+  }
+
   >div:last-child {
     display: flex;
   }

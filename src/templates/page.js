@@ -69,8 +69,15 @@ const PageWrapper = styled.section`
   margin: 40px auto;
   padding: 20px;
   background: var(--dark_blue);
+  background: var(--beige);
   color: white;
+  color: var(--blue);
+  color: black;
   border-radius: 10px;
+
+  > h1 {
+    color: var(--blue);
+  }
 `;
 
 const Page = props => {
