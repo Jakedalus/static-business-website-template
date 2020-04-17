@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql, Link } from "gatsby";
 import "./layout.css";
 import styled from 'styled-components';
-import { darken, cssVar } from 'polished';
+import { createGlobalStyle } from "styled-components"
 
 const Main = styled.main`
   margin: 0 auto;
@@ -92,6 +92,7 @@ const NavLink = styled.div`
 
 const Header = styled.header`
   display: flex;
+  align-items: center;
   background: var(--dark_blue);
   background: var(--dark_orange);
   background: var(--lavendar);
@@ -109,6 +110,62 @@ const Header = styled.header`
     100% {
       opacity: 1;
     }
+  }
+
+  .light-or-dark-container {
+    display: flex;
+  }
+
+  input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+  
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: grey;
+    background: var(--orange);
+    display: block;
+    border-radius: 100px;
+    position: relative;
+  }
+  
+  label:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 22.5px;
+    height: 22.5px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+  
+  input:checked + label {
+    background: #bada55;
+    background: var(--dark_blue);
+  }
+  
+  input:checked + label:after {
+    left: calc(100% - 1.25px);
+    transform: translateX(-100%);
+  }
+  
+  // label:active:after {
+  //   width: 32.5px;
+  // }
+  
+  // centering
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 `;
 
@@ -153,43 +210,110 @@ const Branding = styled.div`
   }
 `;
 
+const GlobalStyle = createGlobalStyle`
+  ${props => props.theme ? `
+  :root {
+    --dark_blue: #0d2b45;
+    --blue: #203c56;
+    --purple: #544e68;
+    --lavendar: #8d697a;
+    --dark_orange: #d08159;
+    --dark_orange: #AA5B33;
+    --orange: #ffaa5e;
+    --light_orange: #ffd4a3;
+    --beige: #ffecd6;
+    --off_white: #FFFFF0;
+  }` : `
+  :root {
+    --dark_blue: #0d2b45;
+    --blue: #203c56;
+    --purple: #544e68;
+    // --purple: #fff;
+    --lavendar: #8d697a;
+    --dark_orange: #d08159;
+    --dark_orange: #AA5B33;
+    --orange: #ffaa5e;
+    --light_orange: #ffd4a3;
+    --beige: #ffecd6;
+    // --beige: #eee;
+    --off_white: #FFFFF0;
+  }`}
+`;
 
-const Layout = ({ children }) => {
+class Layout extends React.Component  {
 
-  return (
-    <>
-      <Header>
-        <StaticQuery  
-          query={`${navigationQuery}`}
-          render={(data) => {
-            console.log('data:', data);
-            return (
-              <>
-                <Branding>
-                  <Link to='/'>
-                    {data.prismic.allNavigations.edges[0].node.branding}
-                  </Link>
-                </Branding>
-                <NavLinks>
-                  {
-                    data.prismic.allNavigations.edges[0].node.navigationLinks.map(link => {
-                      return (
-                      <NavLink key={link.link._meta.uid}>
-                        <Link to={`/${link.link._meta.uid}`}>
-                          {link.label}
-                        </Link>
-                      </NavLink>
-                      );
-                  })}
-                </NavLinks>
-              </>
-            )
-          }}
-        />
-      </Header>
-      <Main>{children}</Main>
-    </>
-  )
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      darkMode: false
+    };
+  }
+
+  handleToggleDarkMode = () => {
+    this.setState({ darkMode: !this.state.darkMode });
+  };
+
+  render() {
+
+    // const lightTheme = {
+    //   body: '#E2E2E2',
+    //   text: '#363537',
+    //   toggleBorder: '#FFF',
+    //   gradient: 'linear-gradient(#39598A, #79D7ED)',
+    // }
+
+
+    const { children } = this.props;
+
+    console.log('children:', children);
+    console.log('this.state:', this.state);
+    console.log('this.props:', this.props);
+
+    return (
+      <>
+        <GlobalStyle theme={this.state.darkMode} />
+        <Header>
+          <StaticQuery  
+            query={`${navigationQuery}`}
+            render={(data) => {
+              console.log('data:', data);
+              return (
+                <>
+                  <Branding>
+                    <Link to='/'>
+                      {data.prismic.allNavigations.edges[0].node.branding}
+                    </Link>
+                  </Branding>
+                  <NavLinks>
+                    {
+                      data.prismic.allNavigations.edges[0].node.navigationLinks.map(link => {
+                        return (
+                        <NavLink key={link.link._meta.uid}>
+                          <Link to={`/${link.link._meta.uid}`}>
+                            {link.label}
+                          </Link>
+                        </NavLink>
+                        );
+                    })}
+                  </NavLinks>
+                  <div className="light-or-dark-container">
+                    <input 
+                      type="checkbox" 
+                      id="switch" 
+                      onClick={this.handleToggleDarkMode} 
+                    />
+                    <label for="switch">Toggle</label>
+                  </div>
+                </>
+              )
+            }}
+          />
+        </Header>
+        <Main>{children}</Main>
+      </>
+    );
+  }
 }
 
 Layout.propTypes = {

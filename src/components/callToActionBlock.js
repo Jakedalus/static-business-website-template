@@ -49,8 +49,10 @@ const Button = styled.div`
   }
 `;
 
-const CallToActionBlock = ({title, content, buttonLabel, buttonDestination, featuredImage, contentType}) => {
+const CallToActionBlock = (props) => {
+  const {title, content, buttonLabel, buttonDestination, featuredImage, contentType} = props;
   console.log(title, content, buttonLabel, buttonDestination, contentType);
+  console.log('props:', props);
   return (
     <CallToActionBlockWrapper>
       <RichText render={title} />

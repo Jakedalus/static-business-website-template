@@ -24,8 +24,9 @@ const PriceListWrapper = styled.section`
   }
 `;
 
-const PriceList = ({title, prices}) => {
-  console.log(prices);
+const PriceList = (props) => {
+  const {title, prices} = props;
+  console.log(props);
   return (
     <PriceListWrapper>
       <RichText render={title} />
