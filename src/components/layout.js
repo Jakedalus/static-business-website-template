@@ -97,6 +97,7 @@ const Header = styled.header`
   background: var(--dark_orange);
   background: var(--lavendar);
   background: var(--purple);
+  background: var(--navbar_background);
   
   height: 66px;
   padding: 0 16px;
@@ -212,31 +213,23 @@ const Branding = styled.div`
 
 const GlobalStyle = createGlobalStyle`
   ${props => props.theme ? `
-  :root {
-    --dark_blue: #0d2b45;
-    --blue: #203c56;
-    --purple: #544e68;
-    --lavendar: #8d697a;
-    --dark_orange: #d08159;
-    --dark_orange: #AA5B33;
-    --orange: #ffaa5e;
-    --light_orange: #ffd4a3;
-    --beige: #ffecd6;
-    --off_white: #FFFFF0;
+  :root { // if in DarkMode
+    --navbar_background: var(--blue);
+    --call-to-action-block_background: var(--purple);
+    --callToActionGrid_text-color: var(--beige);
+  }
+  
+  html {
+    background: var(--blue);
   }` : `
   :root {
-    --dark_blue: #0d2b45;
-    --blue: #203c56;
-    --purple: #544e68;
-    // --purple: #fff;
-    --lavendar: #8d697a;
-    --dark_orange: #d08159;
-    --dark_orange: #AA5B33;
-    --orange: #ffaa5e;
-    --light_orange: #ffd4a3;
-    --beige: #ffecd6;
-    // --beige: #eee;
-    --off_white: #FFFFF0;
+    --navbar_background: var(--purple);
+    --call-to-action-block_background: var(--lavendar);
+    --callToActionGrid_text-color: var(--blue);
+  }
+  
+  html {
+    background: var(--beige);
   }`}
 `;
 
@@ -246,12 +239,13 @@ class Layout extends React.Component  {
     super(props);
 
     this.state = {
-      darkMode: false
+      darkMode: localStorage.getItem('darkMode') || false
     };
   }
 
-  handleToggleDarkMode = () => {
-    this.setState({ darkMode: !this.state.darkMode });
+  handleToggleDarkMode = async () => {
+    await this.setState({ darkMode: !this.state.darkMode });
+    localStorage.setItem('darkMode', this.state.darkMode);
   };
 
   render() {
@@ -301,6 +295,7 @@ class Layout extends React.Component  {
                     <input 
                       type="checkbox" 
                       id="switch" 
+                      checked={this.state.darkMode}
                       onClick={this.handleToggleDarkMode} 
                     />
                     <label for="switch">Toggle</label>

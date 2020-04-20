@@ -9,8 +9,9 @@
   --off_white: #e9eef0; */
   /* Pallete designed using coolors.co */
 
-  /* --dark_blue: #0d2b45;
+  --dark_blue: #0d2b45;
   --blue: #203c56;
+  /* --blue: red; */
   --purple: #544e68;
   --lavendar: #8d697a;
   --dark_orange: #d08159;
@@ -18,18 +19,19 @@
   --orange: #ffaa5e;
   --light_orange: #ffd4a3;
   --beige: #ffecd6;
-  --off_white: #FFFFF0; */
+  --off_white: #FFFFF0;
 }
 
 * {
   box-sizing: border-box;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 html {
   font-family: 'Karla', sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  background: var(--beige);
+  /* background: var(--beige); */
   /* background: var(--off_white); */
 }
 body {

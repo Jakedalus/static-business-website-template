@@ -5,7 +5,7 @@ import {Link} from 'gatsby';
 
 const CallToActionBlockWrapper = styled.section`
   padding: 20px;
-  background: var(--lavendar);
+  background: var(--call-to-action-block_background);
   color: white;
 
   border-radius: 20px;

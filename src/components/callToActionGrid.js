@@ -8,7 +8,7 @@ const CallToActionGridWrapper = styled.section`
   margin: 40px auto;
 
   > h1 {
-    color: var(--blue);
+    color: var(--callToActionGrid_text-color);
   }
 `;
 
