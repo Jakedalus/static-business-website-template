@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 const ContactSuccess = () => {
   return (
     <Layout>
-      <h1>Thanks for getting in touch!</h1>
+      <h1>Thank you for getting in touch!</h1>
     </Layout>
   )
 };

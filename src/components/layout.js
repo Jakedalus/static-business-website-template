@@ -218,7 +218,8 @@ const GlobalStyle = createGlobalStyle`
   return (props.theme ? `
   :root { // if in DarkMode
     --navbar_background: var(--dark_blue);
-    --call-to-action-block_background: var(--purple);
+    --callToActionBlock_background: var(--purple);
+    --callToActionBlock__button: var(--dark_blue);
     --callToActionGrid_text-color: var(--beige);
     --priceItem_background: var(--purple);
     --mostPopularPriceItem_background: var(--dark_orange);
@@ -236,7 +237,8 @@ const GlobalStyle = createGlobalStyle`
   }` : `
   :root {
     --navbar_background: var(--purple);
-    --call-to-action-block_background: var(--lavendar);
+    --callToActionBlock_background: var(--lavendar);
+    --callToActionBlock__button: var(--blue);
     --callToActionGrid_text-color: var(--blue);
     --priceItem_background: var(--blue);
     --mostPopularPriceItem_background: var(--dark_orange);
