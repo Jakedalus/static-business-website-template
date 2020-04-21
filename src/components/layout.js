@@ -54,8 +54,7 @@ const NavLink = styled.div`
 
   a {
     position: relative;
-    color: white;
-    // color: var(--off_white);
+    color: var(--navbar_color);
     margin: 0 16px;
     text-decoration: none;
     font-weight: bold;
@@ -74,7 +73,7 @@ const NavLink = styled.div`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: white;
+      background-color: var(--navbar_color);
       visibility: hidden;
       -webkit-transform: scaleX(0);
       transform: scaleX(0);
@@ -93,10 +92,6 @@ const NavLink = styled.div`
 const Header = styled.header`
   display: flex;
   align-items: center;
-  background: var(--dark_blue);
-  background: var(--dark_orange);
-  background: var(--lavendar);
-  background: var(--purple);
   background: var(--navbar_background);
   
   height: 66px;
@@ -183,7 +178,7 @@ const Branding = styled.div`
 
   a {
     position: relative;
-    color: white;
+    color: var(--navbar_color);
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
@@ -195,7 +190,7 @@ const Branding = styled.div`
       height: 2px;
       bottom: 0;
       left: 0;
-      background-color: white;
+      background-color: var(--navbar_color);
       visibility: hidden;
       -webkit-transform: scaleX(0);
       transform: scaleX(0);
@@ -218,6 +213,7 @@ const GlobalStyle = createGlobalStyle`
   return (props.theme ? `
   :root { // if in DarkMode
     --navbar_background: var(--dark_blue);
+    --navbar_color: var(--light_orange);
     --callToActionBlock_background: var(--purple);
     --callToActionBlock__button: var(--dark_blue);
     --callToActionGrid_text-color: var(--beige);
@@ -237,6 +233,7 @@ const GlobalStyle = createGlobalStyle`
   }` : `
   :root {
     --navbar_background: var(--purple);
+    --navbar_color: white;
     --callToActionBlock_background: var(--lavendar);
     --callToActionBlock__button: var(--blue);
     --callToActionGrid_text-color: var(--blue);
