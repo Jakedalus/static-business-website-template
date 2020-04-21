@@ -27,39 +27,39 @@ const BlogPostWrapper = styled.section`
     color: var(--blue); 
     transition: filter 0.2s ease-in-out 0s;
 
+    
+
     p, h1 {
+      position: relative;
       margin: 0;
       margin-bottom: 5px;
+      width: fit-content;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--page_heading);
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.2s ease-in-out 0s;
+      }
+  
+      &:hover:after {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+      
     }
 
     .date {
       font-weight: bold;
     }
 
-    &:hover {
-      // filter: brightness(170%);
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: white;
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition: all 0.2s ease-in-out 0s;
-      transition: all 0.2s ease-in-out 0s;
-    }
-
-    &:hover:before {
-      visibility: visible;
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-    }
+    
   }
 `;
 
