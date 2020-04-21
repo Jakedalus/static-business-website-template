@@ -226,6 +226,9 @@ const GlobalStyle = createGlobalStyle`
     --page_background: var(--blue);
     --page_color: white;
     --page_heading: var(--beige);
+    --imageCaption_color: var(--beige);
+    --imageCaption_background: var(--purple);
+    --postQuote_color: var(--beige);
   }
   
   html {
@@ -241,6 +244,9 @@ const GlobalStyle = createGlobalStyle`
     --page_background: var(--beige);
     --page_color: black;
     --page_heading: var(--blue);
+    --imageCaption_color: var(--blue);
+    --imageCaption_background: var(--light_orange);
+    --postQuote_color: var(--blue);
   }
   
   html {

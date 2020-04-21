@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const ImageWithCaptionWrapper = styled.figure`
   display: flex;
   flex-direction: column;
-  border: 6px solid var(--blue);
+  // border: 6px solid var(--blue);
   border-radius: 5px;
   width: 350px;
   margin: 20px 0;
@@ -21,10 +21,11 @@ const ImageWithCaptionWrapper = styled.figure`
     // height: 80px;
     font-style: italic;
     font-weight: bold; 
-    color: var(--blue);
+    color: var(--imageCaption_color);
     background: rgba(0,0,0,0.2);
+    background: var(--imageCaption_background);
     margin: 0;
-    padding: 6px 4px;
+    padding: 6px;
 
     p {
       margin: 0;
