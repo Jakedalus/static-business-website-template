@@ -6,7 +6,7 @@ const PriceItemWrapper = styled.div`
   flex-grow: 1;
   flex-basis: 0;
   // margin: 0 10px;
-  background: ${p => p.mostPopular ? 'var(--dark_orange)' : 'var(--blue)'};
+  background: ${p => p.mostPopular ? 'var(--mostPopularPriceItem_background)' : 'var(--priceItem_background)'};
   color: ${p => p.mostPopular ? 'white' : 'white'};
   padding: 20px 10px;
   position: relative;
@@ -32,7 +32,7 @@ const PriceItemWrapper = styled.div`
     position: absolute;
     right: -10px;
     top: -10px;
-    background: var(--purple);
+    background: var(--mostPopularFlag_background);
     padding: 5px;
     color: white;
   }

@@ -68,15 +68,12 @@ const PageWrapper = styled.section`
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: var(--dark_blue);
-  background: var(--beige);
-  color: white;
-  color: var(--blue);
-  color: black;
+  background: var(--page_background);
+  color: var(--page_color);
   border-radius: 10px;
 
   > h1 {
-    color: var(--blue);
+    color: var(--page_heading);
   }
 `;
 

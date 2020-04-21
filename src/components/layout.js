@@ -149,7 +149,7 @@ const Header = styled.header`
   
   input:checked + label {
     background: #bada55;
-    background: var(--dark_blue);
+    background: var(--purple);
   }
   
   input:checked + label:after {
@@ -212,11 +212,20 @@ const Branding = styled.div`
 `;
 
 const GlobalStyle = createGlobalStyle`
-  ${props => props.theme ? `
+  ${props => {
+  console.log('GlobalStyle, props', props);
+
+  return (props.theme ? `
   :root { // if in DarkMode
-    --navbar_background: var(--blue);
+    --navbar_background: var(--dark_blue);
     --call-to-action-block_background: var(--purple);
     --callToActionGrid_text-color: var(--beige);
+    --priceItem_background: var(--purple);
+    --mostPopularPriceItem_background: var(--dark_orange);
+    --mostPopularFlag_background: var(--purple);
+    --page_background: var(--blue);
+    --page_color: white;
+    --page_heading: var(--beige);
   }
   
   html {
@@ -226,11 +235,17 @@ const GlobalStyle = createGlobalStyle`
     --navbar_background: var(--purple);
     --call-to-action-block_background: var(--lavendar);
     --callToActionGrid_text-color: var(--blue);
+    --priceItem_background: var(--blue);
+    --mostPopularPriceItem_background: var(--dark_orange);
+    --mostPopularFlag_background: var(--purple);
+    --page_background: var(--beige);
+    --page_color: black;
+    --page_heading: var(--blue);
   }
   
   html {
     background: var(--beige);
-  }`}
+  }`)}}
 `;
 
 class Layout extends React.Component  {
@@ -238,8 +253,10 @@ class Layout extends React.Component  {
   constructor(props) {
     super(props);
 
+    console.log('localStorage:', localStorage, JSON.parse(localStorage.getItem('darkMode')));
+
     this.state = {
-      darkMode: localStorage.getItem('darkMode') || false
+      darkMode: localStorage.getItem('darkMode') !== null ? JSON.parse(localStorage.getItem('darkMode')) : false
     };
   }
 

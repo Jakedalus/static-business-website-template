@@ -48,8 +48,8 @@ const PostWrapper = styled.section`
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: var(--beige);
-  color: black;
+  background: var(--page_background);
+  color: var(--page_color);
   border-radius: 10px;
 `;
 
