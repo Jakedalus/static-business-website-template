@@ -206,6 +206,18 @@ const Branding = styled.div`
   }
 `;
 
+const Footer = styled.footer`
+  background: var(--navbar_background);
+  height: 220px;
+  color: var(--navbar_color);
+  padding: 20px 0;
+
+  .footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+`;
+
 const GlobalStyle = createGlobalStyle`
   ${props => {
   console.log('GlobalStyle, props', props);
@@ -328,6 +340,11 @@ class Layout extends React.Component  {
           />
         </Header>
         <Main>{children}</Main>
+        <Footer>
+          <div className="footer-container">
+            Hello
+          </div>
+        </Footer>
       </>
     );
   }
