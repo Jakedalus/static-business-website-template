@@ -53,25 +53,39 @@ const navigationQuery = graphql`
 }`;
 
 const underlineOnHover = `
-  &:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--navbar_color);
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 2px;
+  //   bottom: 0;
+  //   left: 0;
+  //   background-color: var(--navbar_color);
+  //   visibility: hidden;
+  //   -webkit-transform: scaleX(0);
+  //   transform: scaleX(0);
+  //   -webkit-transition: all 0.2s ease-in-out 0s;
+  //   transition: all 0.2s ease-in-out 0s;
+  // }
+
+  // &:hover:before {
+  //   visibility: visible;
+  //   -webkit-transform: scaleX(1);
+  //   transform: scaleX(1);
+  // }
+
+  {
+    color: var(--navbar_color);
+    
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
   }
 
-  &:hover:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
+  &:hover, &:focus {
+      background-size: 100% 2px;
   }
 `;
 
@@ -219,8 +233,9 @@ const Footer = styled.footer`
     }
 
     li {
-      // display: inline;
+      display: inline;
       position: relative;
+      font-weight: bold;
       list-style: none;
       width: fit-content;
       color: var(--navbar_color);
@@ -363,27 +378,31 @@ class Layout extends React.Component  {
                 <p>by the following photographers:</p>
                 <li>
                   <a href="https://unsplash.com/@mikofilm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-                    <FaCameraRetro /> Mike Kononov
+                     Mike Kononov 
                   </a>
+                  <span>, </span>
                 </li>
                 <li>
                   <a href="https://unsplash.com/@seanpollock?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-                    <FaCameraRetro /> Sean Pollock
+                     Sean Pollock
                   </a>
+                  <span>, </span>
                 </li>
                 <li>
                   <a href="https://unsplash.com/@adeolueletu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-                    <FaCameraRetro /> Adeolu Eletu
+                     Adeolu Eletu
                   </a>
+                  <span>, </span>
                 </li>
                 <li>
                   <a href="https://unsplash.com/@drew_beamer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-                    <FaCameraRetro /> Drew Beamer
+                     Drew Beamer
                   </a>
+                  <span>, </span>
                 </li>
                 <li>
                   <a href="https://unsplash.com/@brookecagle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-                    <FaCameraRetro /> Brooke Cagle
+                     Brooke Cagle
                   </a>
                 </li>
               </ul>
