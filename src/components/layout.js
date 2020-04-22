@@ -10,7 +10,10 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql, Link } from "gatsby";
 import "./layout.css";
 import styled from 'styled-components';
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
+import { FaCameraRetro, FaPalette } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
+
 
 const Main = styled.main`
   margin: 0 auto;
@@ -49,6 +52,29 @@ const navigationQuery = graphql`
   }
 }`;
 
+const underlineOnHover = `
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--navbar_color);
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+  }
+
+  &:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+`;
+
 const NavLink = styled.div`
   margin: auto 0;
 
@@ -60,32 +86,7 @@ const NavLink = styled.div`
     font-weight: bold;
     font-size: 16px;
 
-    // &:hover {
-    //   color: var(--orange);
-    //   color: var(--purple);
-    //   color: red;
-    // }
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--navbar_color);
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition: all 0.2s ease-in-out 0s;
-      transition: all 0.2s ease-in-out 0s;
-    }
-
-    &:hover:before {
-      visibility: visible;
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-    }
+    ${underlineOnHover}
   }
 `;
 
@@ -183,38 +184,49 @@ const Branding = styled.div`
     font-size: 20px;
     text-decoration: none;
 
-    &:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--navbar_color);
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition: all 0.2s ease-in-out 0s;
-      transition: all 0.2s ease-in-out 0s;
-    }
-
-    &:hover:before {
-      visibility: visible;
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-    }
+    ${underlineOnHover}
   }
 `;
 
 const Footer = styled.footer`
   background: var(--navbar_background);
-  height: 220px;
-  color: var(--navbar_color);
+  // height: 220px;
+  color: var(--footer_color);
+  color: white;
   padding: 20px 0;
 
   .footer-container {
+    display: flex;
     max-width: 800px;
     margin: 0 auto;
+
+    a {
+      position: relative;
+      color: var(--navbar_color);
+      font-weight: bold;
+      text-decoration: none;
+
+      ${underlineOnHover}
+    }
+
+    ul, div {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    li {
+      // display: inline;
+      position: relative;
+      list-style: none;
+      width: fit-content;
+      color: var(--navbar_color);
+      cursor: pointer;
+      margin: 0;
+    }
   }
 `;
 
@@ -225,7 +237,7 @@ const GlobalStyle = createGlobalStyle`
   return (props.theme ? `
   :root { // if in DarkMode
     --navbar_background: var(--dark_blue);
-    --navbar_color: var(--light_orange);
+    --navbar_color: var(--orange);
     --callToActionBlock_background: var(--purple);
     --callToActionBlock__button: var(--dark_blue);
     --callToActionGrid_text-color: var(--beige);
@@ -238,6 +250,7 @@ const GlobalStyle = createGlobalStyle`
     --imageCaption_color: var(--beige);
     --imageCaption_background: var(--purple);
     --postQuote_color: var(--beige);
+    --footer_color: var(--off_white);
   }
   
   html {
@@ -246,6 +259,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --navbar_background: var(--purple);
     --navbar_color: white;
+    --navbar_color: var(--light_orange);
     --callToActionBlock_background: var(--lavendar);
     --callToActionBlock__button: var(--blue);
     --callToActionGrid_text-color: var(--blue);
@@ -258,6 +272,7 @@ const GlobalStyle = createGlobalStyle`
     --imageCaption_color: var(--blue);
     --imageCaption_background: var(--light_orange);
     --postQuote_color: var(--blue);
+    --footer_color: var(--light_orange);
   }
   
   html {
@@ -342,7 +357,48 @@ class Layout extends React.Component  {
         <Main>{children}</Main>
         <Footer>
           <div className="footer-container">
-            Hello
+            <IconContext.Provider value={{size: '12px'}}>
+              <ul>
+                <p>All Images from <a href="https://unsplash.com/">Unsplash</a></p> 
+                <p>by the following photographers:</p>
+                <li>
+                  <a href="https://unsplash.com/@mikofilm?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                    <FaCameraRetro /> Mike Kononov
+                  </a>
+                </li>
+                <li>
+                  <a href="https://unsplash.com/@seanpollock?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                    <FaCameraRetro /> Sean Pollock
+                  </a>
+                </li>
+                <li>
+                  <a href="https://unsplash.com/@adeolueletu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                    <FaCameraRetro /> Adeolu Eletu
+                  </a>
+                </li>
+                <li>
+                  <a href="https://unsplash.com/@drew_beamer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                    <FaCameraRetro /> Drew Beamer
+                  </a>
+                </li>
+                <li>
+                  <a href="https://unsplash.com/@brookecagle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+                    <FaCameraRetro /> Brooke Cagle
+                  </a>
+                </li>
+              </ul>
+              
+              <div>
+                <p>
+                  Color Palette is &thinsp;
+                  <a href="https://lospec.com/palette-list/slso8"><FaPalette />SLS08</a> from 
+                </p>
+                <p>
+                  <a href="https://lospec.com/solosalsero">Luis Miguel Maldonado</a> on &thinsp;
+                  <a href="https://lospec.com/">LOSPEC</a>
+                </p>
+              </div>
+            </IconContext.Provider>
           </div>
         </Footer>
       </>
