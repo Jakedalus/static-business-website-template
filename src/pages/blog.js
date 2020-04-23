@@ -169,8 +169,22 @@ const Blog = props => {
   console.log('----');
   // console.log(props.data.prismic.allBlog_posts.edges);
 
-  const onPreviousClick = () => setPage(page - limit);
-  const onNextClick = () => setPage(page + limit);
+  const onPreviousClick = () => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+    setPage(page - limit)
+  };
+  const onNextClick = () => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+    setPage(page + limit)
+  };
 
 
   useEffect(() => {
