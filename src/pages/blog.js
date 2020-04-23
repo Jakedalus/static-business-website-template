@@ -159,10 +159,15 @@ const Blog = props => {
   const didMountRef = useRef(false);
   const [data, setData] = useState(props.data.prismic);
 
+  const totalBlogs = data.allBlog_posts.totalCount;
+  const totalPages = Math.ceil(totalBlogs / limit);
+
   console.log('props:', props);
-  console.log('$$ page:', page);
-  console.log('$$ getCursorFromDocumentIndex(page):',getCursorFromDocumentIndex(page));
+  console.log('page:', page);
+  console.log('getCursorFromDocumentIndex(page):',getCursorFromDocumentIndex(page));
   console.log('data:', data);
+  console.log('totalBlogs:', totalBlogs);
+  console.log('totalPages:', totalPages);
   // console.log('--> data.allBlog_posts.edges[0].cursor:', data.allBlog_posts.edges[0].cursor);
   // console.log('--> data.allBlog_posts.edges[0].node.date:', data.allBlog_posts.edges[0].node.date);
   // console.log('didMountRef:', didMountRef);
