@@ -261,7 +261,8 @@ const GlobalStyle = createGlobalStyle`
     --mostPopularFlag_background: var(--purple);
     --page_background: var(--blue);
     --page_color: white;
-    --page_heading: var(--beige);
+    --page_color: var(--beige);
+    --page_heading: var(--orange);
     --imageCaption_color: var(--beige);
     --imageCaption_background: var(--purple);
     --postQuote_color: var(--beige);
@@ -283,7 +284,10 @@ const GlobalStyle = createGlobalStyle`
     --mostPopularFlag_background: var(--purple);
     --page_background: var(--beige);
     --page_color: black;
+    --page_color: var(--blue);
     --page_heading: var(--blue);
+    --page_heading: var(--lavendar);
+    // --page_heading: var(--dark_orange);
     --imageCaption_color: var(--blue);
     --imageCaption_background: var(--light_orange);
     --postQuote_color: var(--blue);
@@ -360,9 +364,9 @@ class Layout extends React.Component  {
                       type="checkbox" 
                       id="switch" 
                       checked={this.state.darkMode}
-                      onClick={this.handleToggleDarkMode} 
+                      onChange={this.handleToggleDarkMode} 
                     />
-                    <label for="switch">Toggle</label>
+                    <label htmlFor="switch">Toggle</label>
                   </div>
                 </>
               )

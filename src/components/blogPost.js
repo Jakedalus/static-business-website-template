@@ -3,9 +3,43 @@ import { Link } from 'gatsby';
 import RichText from './richText';
 import SliceZone from './sliceZone';
 import styled from 'styled-components';
-// import { bounce } from 'react-animations';
 
-// const bounceAnimation = keyframes`${bounce}`;
+const underlineOnHover = `
+  // &:before {
+  //   content: "";
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 2px;
+  //   bottom: 0;
+  //   left: 0;
+  //   background-color: var(--page_heading);
+  //   visibility: hidden;
+  //   -webkit-transform: scaleX(0);
+  //   transform: scaleX(0);
+  //   -webkit-transition: all 0.2s ease-in-out 0s;
+  //   transition: all 0.2s ease-in-out 0s;
+  // }
+
+  // &:hover:before {
+  //   visibility: visible;
+  //   -webkit-transform: scaleX(1);
+  //   transform: scaleX(1);
+  // }
+
+  {
+    color: var(--page_heading);
+    
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+  }
+
+  &:hover, &:focus {
+      background-size: 100% 2px;
+  }
+`;
 
 const BlogPostWrapper = styled.section`
   max-width: 800px;
@@ -35,23 +69,25 @@ const BlogPostWrapper = styled.section`
       margin-bottom: 5px;
       width: fit-content;
 
-      &:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: var(--page_heading);
-        visibility: hidden;
-        transform: scaleX(0);
-        transition: all 0.2s ease-in-out 0s;
-      }
+      ${underlineOnHover}
+
+      // &:after {
+      //   content: "";
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 2px;
+      //   bottom: 0;
+      //   left: 0;
+      //   background-color: var(--page_heading);
+      //   visibility: hidden;
+      //   transform: scaleX(0);
+      //   transition: all 0.2s ease-in-out 0s;
+      // }
   
-      &:hover:after {
-        visibility: visible;
-        transform: scaleX(1);
-      }
+      // &:hover:after {
+      //   visibility: visible;
+      //   transform: scaleX(1);
+      // }
       
     }
 
