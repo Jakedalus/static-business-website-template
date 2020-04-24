@@ -113,26 +113,42 @@ const BlogWrapper = styled.section`
       // animation: .2s ease-in-out .1s fadeInMoveUp backwards;
     }
 
-    button {
-      cursor: pointer;
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      width: 20%;
+      margin: 0 auto;
+
+      button {
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background: var(--blogNavButtons_background);
+        padding: 4px 16px;
+        color: var(--blogNavButtons_color);
+        font-weight: bold;
+
+        &:hover {
+          background: var(--blogNavButtons_background_hover);
+        }
+
+        &:disabled {
+          filter: brightness(50%);
+          background: var(--blogNavButtons_background);
+        }
+
+        
+
+        
+      }
     }
+
+    
   }
 
   img {
     height: 50vh;
   }
-
-  // @keyframes fadeInMoveUp {
-  //   0% {
-  //     opacity: 0;
-  //     transform: translateY(60px);
-  //   }
-    
-  //   100% {
-  //     opacity: 1;
-  //     transform: translateY(0);
-  //   }
-  // }
 
   .item-enter {
     opacity: 0;
@@ -148,7 +164,6 @@ const BlogWrapper = styled.section`
     opacity: 0;
     transition: opacity 500ms ease-in;
   }
-
 `;
 
 
@@ -242,7 +257,7 @@ const Blog = props => {
             }
             </TransitionGroup>
           </div>
-          <div>
+          <div className="buttons">
             <button
               // disabled={!data.allBlog_posts.pageInfo.hasPreviousPage}
               disabled={page <= 0}

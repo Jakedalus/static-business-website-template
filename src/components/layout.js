@@ -266,6 +266,9 @@ const GlobalStyle = createGlobalStyle`
     --imageCaption_color: var(--beige);
     --imageCaption_background: var(--purple);
     --postQuote_color: var(--beige);
+    --blogNavButtons_color: var(--blue);
+    --blogNavButtons_background: var(--orange);
+    --blogNavButtons_background_hover: var(--light_orange);
     --footer_color: var(--off_white);
   }
   
@@ -287,10 +290,12 @@ const GlobalStyle = createGlobalStyle`
     --page_color: var(--blue);
     --page_heading: var(--blue);
     --page_heading: var(--lavendar);
-    // --page_heading: var(--dark_orange);
     --imageCaption_color: var(--blue);
     --imageCaption_background: var(--light_orange);
     --postQuote_color: var(--blue);
+    --blogNavButtons_color: var(--beige);
+    --blogNavButtons_background: var(--purple);
+    --blogNavButtons_background_hover: var(--lavendar);
     --footer_color: var(--light_orange);
   }
   
