@@ -49,16 +49,16 @@ const BlogPostWrapper = styled.section`
   padding: 20px;
   border-radius: 10px;
 
-  h1 {
+  h2 {
     display: inline;
   }
-  
+
   a {
     position: relative;
     text-decoration: none;
     transition: filter 0.2s ease-in-out 0s;
 
-    p, h1 {
+    p, h2 {
       position: relative;
       margin: 0;
       margin: 15px 0;

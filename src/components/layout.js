@@ -11,7 +11,7 @@ import { StaticQuery, graphql, Link } from "gatsby";
 import "./layout.css";
 import styled from 'styled-components';
 import { createGlobalStyle } from "styled-components";
-import { FaCameraRetro, FaPalette } from 'react-icons/fa';
+import { FaPalette } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 
 
