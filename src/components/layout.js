@@ -104,14 +104,25 @@ const NavLink = styled.div`
   }
 `;
 
-const Header = styled.header`
+const HeaderContent = styled.div `
   display: flex;
   align-items: center;
+  width: var(--header_width);
+  padding: 20px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    // justify-content: flex-start;
+    align-items: flex-start;
+    width: var(--content_width);
+  }
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: center;
   background: var(--navbar_background);
-  
-  height: 66px;
-  padding: 0 16px;
-  box-sizing: border-box;
+  // height: 66px;
 
   @keyframes fadeIn {
     0% {
@@ -125,6 +136,8 @@ const Header = styled.header`
 
   .light-or-dark-container {
     display: flex;
+    margin: 0;
+    margin-left: -5px;
   }
 
   input[type=checkbox]{
@@ -183,7 +196,18 @@ const Header = styled.header`
 const NavLinks = styled.div`
   margin-left: auto;
   display: flex;
-  // animation: .8s ease-in-out fadeIn;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+  
+  @media (max-width: 600px) {
+    margin: 0;
+
+    a {
+      margin: 0;
+    }
+  }
 `;
 
 const Branding = styled.div`
@@ -254,11 +278,18 @@ const GlobalStyle = createGlobalStyle`
   `
   :root {
     --content_width: 800px;
+    --header_width: 100%;
   }
 
   @media (max-width: 800px) {
     :root {
       --content_width: 600px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    :root {
+      --content_width: 450px;
     }
   }
   `.concat(
@@ -355,42 +386,44 @@ class Layout extends React.Component  {
       <>
         <GlobalStyle theme={this.state.darkMode} />
         <Header>
-          <StaticQuery  
-            query={`${navigationQuery}`}
-            render={(data) => {
-              console.log('data:', data);
-              return (
-                <>
-                  <Branding>
-                    <Link to='/'>
-                      {data.prismic.allNavigations.edges[0].node.branding}
-                    </Link>
-                  </Branding>
-                  <NavLinks>
-                    {
-                      data.prismic.allNavigations.edges[0].node.navigationLinks.map(link => {
-                        return (
-                        <NavLink key={link.link._meta.uid}>
-                          <Link to={`/${link.link._meta.uid}`}>
-                            {link.label}
-                          </Link>
-                        </NavLink>
-                        );
-                    })}
-                  </NavLinks>
-                  <div className="light-or-dark-container">
-                    <input 
-                      type="checkbox" 
-                      id="switch" 
-                      checked={this.state.darkMode}
-                      onChange={this.handleToggleDarkMode} 
-                    />
-                    <label htmlFor="switch">Toggle</label>
-                  </div>
-                </>
-              )
-            }}
-          />
+          <HeaderContent>
+            <StaticQuery  
+              query={`${navigationQuery}`}
+              render={(data) => {
+                console.log('data:', data);
+                return (
+                  <>
+                    <Branding>
+                      <Link to='/'>
+                        {data.prismic.allNavigations.edges[0].node.branding}
+                      </Link>
+                    </Branding>
+                    <NavLinks>
+                      {
+                        data.prismic.allNavigations.edges[0].node.navigationLinks.map(link => {
+                          return (
+                          <NavLink key={link.link._meta.uid}>
+                            <Link to={`/${link.link._meta.uid}`}>
+                              {link.label}
+                            </Link>
+                          </NavLink>
+                          );
+                      })}
+                    </NavLinks>
+                    <div className="light-or-dark-container">
+                      <input 
+                        type="checkbox" 
+                        id="switch" 
+                        checked={this.state.darkMode}
+                        onChange={this.handleToggleDarkMode} 
+                      />
+                      <label htmlFor="switch">Toggle</label>
+                    </div>
+                  </>
+                )
+              }}
+            />
+          </HeaderContent>
         </Header>
         <Main>{children}</Main>
         <Footer>

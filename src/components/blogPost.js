@@ -43,7 +43,6 @@ const underlineOnHover = `
 
 const BlogPostWrapper = styled.section`
   max-width: var(--content_width);;
-  // min-width: 800px;
   margin: 40px auto;
   background: var(--page_background);
   color: var(--page_color);
