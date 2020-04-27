@@ -349,21 +349,23 @@ const GlobalStyle = createGlobalStyle`
   }`))}}
 `;
 
+const windowGlobal = typeof window !== 'undefined' && window;
+
 class Layout extends React.Component  {
 
   constructor(props) {
     super(props);
 
-    console.log('localStorage:', localStorage, JSON.parse(localStorage.getItem('darkMode')));
+    console.log('localStorage:', window.localStorage, JSON.parse(window.localStorage.getItem('darkMode')));
 
     this.state = {
-      darkMode: localStorage.getItem('darkMode') !== null ? JSON.parse(localStorage.getItem('darkMode')) : false
+      darkMode: window.localStorage.getItem('darkMode') !== null ? JSON.parse(window.localStorage.getItem('darkMode')) : false
     };
   }
 
   handleToggleDarkMode = async () => {
     await this.setState({ darkMode: !this.state.darkMode });
-    localStorage.setItem('darkMode', this.state.darkMode);
+    window.localStorage.setItem('darkMode', this.state.darkMode);
   };
 
   render() {
