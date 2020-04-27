@@ -4,13 +4,12 @@ import styled from 'styled-components';
 
 const HeroWrapper = styled.section`
   background: url('${props => props.backgroundImage}');
-  // background: var(--light_gray);
   background-size: 100%;
+  background-size: cover;
   background-origin: border-box;
   background-position: center;
-  // background-position-x: 1px;
   background-repeat: no-repeat;
-  height: calc(100vh - 166px);
+  // height: calc(100vh - 166px);
   display: flex;
   align-items: center;
   text-align: center;

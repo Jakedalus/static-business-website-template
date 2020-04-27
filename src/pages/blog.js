@@ -83,7 +83,7 @@ const BlogWrapper = styled.section`
 
   .blog-home-header {
     background: url('${props => props.backgroundImage}');
-    background-size: 100%;
+    background-size: cover;
     background-origin: border-box;
     background-position: center;
     background-repeat: no-repeat;
