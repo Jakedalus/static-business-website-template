@@ -45,7 +45,7 @@ query ($uid: String) {
 
 
 const PostWrapper = styled.section`
-  max-width: 800px;
+  max-width: var(--content_width);
   margin: 40px auto;
   padding: 20px;
   background: var(--page_background);

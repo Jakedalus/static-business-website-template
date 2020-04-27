@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 import styled from 'styled-components';
 
 const ContentWrapper = styled.section`
-  max-width: 800px;
+  max-width: var(--content_width);
   margin: 40px auto;
   background: var(--page_background);
   color: var(--page_color);

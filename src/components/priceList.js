@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PriceItem from './priceItem';
 
 const PriceListWrapper = styled.section`
-  max-width: 800px;
+  max-width: var(--content_width);
   margin: 40px auto;
 
   > h1 {

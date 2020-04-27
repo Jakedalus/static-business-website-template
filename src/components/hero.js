@@ -17,7 +17,7 @@ const HeroWrapper = styled.section`
   color: var(--orange);
 
   div {
-    max-width: 800px;
+    max-width: var(--content_width);
     margin: 0 auto;
     // background: rgba(0,0,0,0.6);
     padding: 50px 30px;

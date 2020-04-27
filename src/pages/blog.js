@@ -95,7 +95,7 @@ const BlogWrapper = styled.section`
     color: white;
 
     .blog-home-header-content {
-      width: 800px;
+      max-width: var(--content_width);
       padding: 20px;
       background: rgba(0,0,0,0.5);
       border-radius: 10px;
@@ -106,7 +106,7 @@ const BlogWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 800px;
+    max-width: var(--content_width);
     margin: 0 auto;
 
     .blog-posts {

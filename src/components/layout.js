@@ -211,7 +211,7 @@ const Footer = styled.footer`
 
   .footer-container {
     display: flex;
-    max-width: 800px;
+    max-width: var(--content_width);
     margin: 0 auto;
 
     a {
@@ -249,7 +249,21 @@ const GlobalStyle = createGlobalStyle`
   ${props => {
   console.log('GlobalStyle, props', props);
 
-  return (props.theme ? `
+  return (
+
+  `
+  :root {
+    --content_width: 800px;
+  }
+
+  @media (max-width: 800px) {
+    :root {
+      --content_width: 600px;
+    }
+  }
+  `.concat(
+    
+  props.theme ? `
   :root { // if in DarkMode
     --navbar_background: var(--dark_blue);
     --navbar_color: var(--orange);
@@ -301,7 +315,7 @@ const GlobalStyle = createGlobalStyle`
   
   html {
     background: var(--beige);
-  }`)}}
+  }`))}}
 `;
 
 class Layout extends React.Component  {

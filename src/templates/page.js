@@ -65,7 +65,7 @@ query PageQuery($id: String){
 }`;
 
 const PageWrapper = styled.section`
-  max-width: 800px;
+  max-width: var(--content_width);
   margin: 40px auto;
   padding: 20px;
   background: var(--page_background);

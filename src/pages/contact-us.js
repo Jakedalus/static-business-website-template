@@ -28,7 +28,7 @@ const Form = styled.form`
   background: var(--callToActionBlock_background);
   border-radius: 10px;
   margin-top: 20px;
-  max-width: 800px;
+  max-width: var(--content_width);
   margin-left: auto;
   margin-right: auto;
 
@@ -63,7 +63,7 @@ const Button = styled.button`
 `;
 
 const ContentWrapper = styled.section`
-  max-width: 800px;
+  max-width: var(--content_width);
   margin: 40px auto;
   background: var(--page_background);
   color: var(--page_color);
