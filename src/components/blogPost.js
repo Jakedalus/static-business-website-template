@@ -49,24 +49,21 @@ const BlogPostWrapper = styled.section`
   padding: 20px;
   border-radius: 10px;
 
-  h1, .date {
-    color: var(--page_heading);
+  h1 {
+    display: inline;
   }
-
-
+  
   a {
     position: relative;
     text-decoration: none;
-    color: var(--blue); 
     transition: filter 0.2s ease-in-out 0s;
-
-    
 
     p, h1 {
       position: relative;
       margin: 0;
-      margin-bottom: 5px;
+      margin: 15px 0;
       width: fit-content;
+      color: var(--page_heading);
 
       ${underlineOnHover}
 
@@ -107,6 +104,8 @@ const BlogPost = ({title, date, body, uid}) => {
 
       <Link to={`/blog/${uid}`}>
         <RichText render={title} />
+      </Link>
+      <Link to={`/blog/${uid}`}>
         <p className="date">{date}</p>
       </Link>
       

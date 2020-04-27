@@ -136,7 +136,7 @@ const Header = styled.header`
 
   .light-or-dark-container {
     display: flex;
-    margin: 0;
+    margin: 5px 0;
     margin-left: -5px;
   }
 
