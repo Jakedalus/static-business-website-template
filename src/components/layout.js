@@ -357,11 +357,10 @@ class Layout extends React.Component  {
     super(props);
 
     //console.log('localStorage:', window.localStorage, JSON.parse(window.localStorage.getItem('darkMode')));
-    if (typeof window !== `undefined`) {
-      this.state = {
-        darkMode: window.localStorage.getItem('darkMode') !== null ? JSON.parse(window.localStorage.getItem('darkMode')) : false
-      };
-    }
+    this.state = {
+      darkMode: typeof window !== `undefined` && window.localStorage.getItem('darkMode') !== null ? JSON.parse(window.localStorage.getItem('darkMode')) : false
+    };
+
   }
 
   handleToggleDarkMode = async () => {
