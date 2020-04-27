@@ -10,6 +10,7 @@ const PriceItemWrapper = styled.div`
   color: ${p => p.mostPopular ? 'white' : 'white'};
   padding: 20px 10px;
   position: relative;
+  border-radius: 10px;
 
   .price {
     text-align: center;

@@ -11,7 +11,7 @@ const PriceListWrapper = styled.section`
     color: var(--blue);
   }
 
-  >div:last-child {
+  .price-items-container {
     display: flex;
   }
 
@@ -22,6 +22,23 @@ const PriceListWrapper = styled.section`
   .price-list-item:last-child {
     margin-left: 20px;
   }
+
+  @media (max-width: 800px) {
+    .price-items-container {
+      flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
+
+      .price-list-item:first-child, .price-list-item:last-child {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+      > .price-list-item {
+        margin-bottom: 40px;
+      }
+    }
+  }
 `;
 
 const PriceList = (props) => {
@@ -30,7 +47,7 @@ const PriceList = (props) => {
   return (
     <PriceListWrapper>
       <RichText render={title} />
-      <div>
+      <div className="price-items-container">
         {prices.map((price, i) =>(
           <PriceItem 
             key={i}
