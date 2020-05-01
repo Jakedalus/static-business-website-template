@@ -235,6 +235,7 @@ const Footer = styled.footer`
 
   .footer-container {
     display: flex;
+    justify-content: space-between;
     max-width: var(--content_width);
     margin: 0 auto;
 
@@ -250,9 +251,14 @@ const Footer = styled.footer`
     ul, div {
       flex-grow: 1;
       flex-basis: 0;
+      max-width: calc(var(--content_width) / 2.2);
     }
 
     p {
+      margin: 0;
+    }
+
+    ul {
       margin: 0;
     }
 
@@ -470,9 +476,7 @@ class Layout extends React.Component  {
               <div>
                 <p>
                   Color Palette is &thinsp;
-                  <a href="https://lospec.com/palette-list/slso8"><FaPalette />SLS08</a> from 
-                </p>
-                <p>
+                  <a href="https://lospec.com/palette-list/slso8"><FaPalette />SLS08</a> from &thinsp;
                   <a href="https://lospec.com/solosalsero">Luis Miguel Maldonado</a> on &thinsp;
                   <a href="https://lospec.com/">LOSPEC</a>
                 </p>
